@@ -1,0 +1,43 @@
+pip install waitress
+pip install jupyter-dash
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import plotly.express as px
+from dash import Dash, dcc, html, Input, Output
+import flask
+import dash
+from flask import Flask
+
+
+ap = Dash(__name__)
+hd = pd.read_csv("./healthcare-dataset-stroke-data.csv")
+
+ap.layout = html.Div([
+    html.H4('Analysis of Strokes'),
+    dcc.Graph(id="graph"),
+    html.P("Names:"),
+    dcc.Dropdown(id='names',
+        options=['gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type', 'Residence_type', 'avg_glucose_level', 'bmi', 'smoking_status', 'stroke'],
+        value='gender', clearable=False
+    )
+    html.P("Values:"),
+    dcc.Dropdown(id='values',
+        options=['male', 'female'],
+        value='gender', clearable=False
+    ),
+])
+
+
+@ap.callback(
+    Output("graph", "figure"), 
+    Input("names", "value"), 
+    Input("values", "value"))
+def generate_chart(names, values):
+    df = px.data.hd() # replace with your own data source
+    fig = px.pie(df, values=values, names=names, hole=.3)
+    return fig
+
+from waitress import serve
+serve(ap, host="0.0.0.0", port=8080)
