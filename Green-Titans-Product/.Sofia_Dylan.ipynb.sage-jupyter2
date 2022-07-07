@@ -19,4 +19,4 @@
 {"cell_type":"markdown","id":"556cc4","input":"The older you are, the more likely you are to have a stroke. The higher you average glucose level is, the higher the stroke risk becomes. The higher your BMI is, the more likely you ate to have a stroke\n\nThe most dangerous combination is a high glucose level, and old age\n\nThe only data point that does not have any direct relation to strokes is age, although it does raise the chance for a person to get a stroke, when they are older\n\n","pos":17,"type":"cell"}
 {"cell_type":"markdown","id":"586f74","input":"## Correlation matrix\n\n","pos":15,"type":"cell"}
 {"id":0,"time":1657041463323,"type":"user"}
-{"last_load":1657041463689,"type":"file"}
+{"last_load":1657158744659,"type":"file"}
