@@ -12,5 +12,5 @@
 {"cell_type":"code","exec_count":178,"id":"12d57f","input":"pie()","output":{"0":{"data":{"iframe":"5607fac9f723b0740bed34ff301a304244679c95"},"exec_count":178,"output_type":"execute_result"}},"pos":8,"type":"cell"}
 {"cell_type":"code","exec_count":187,"id":"55ce73","input":"def clean_data():\n    global df\n    df = df[df['bmi'].notna()]\n    columns_to_drop = ['id', 'ever_married', 'work_type']\n    df.drop(columns_to_drop, axis=1, inplace=True)\n    df.drop(df.index[df['gender'] == 'Other'], inplace = True)\n\ndef pie():\n    global df\n    new_df = df.groupby('smoking_status').count()\n    options = list(new_df.index)\n    counts = []\n    for val in options:\n        counts.append(new_df[\"heart_disease\"][val])\n\n    new_fig = px.pie(new_df, values=counts, names=options, title=\"Percentage of Smokers\")\n    new_fig.show()\n\ndef scat():\n    global df\n    new_fig = px.scatter(df, x=\"age\", y=\"bmi\",color=\"avg_glucose_level\")\n    new_fig.show()\n\ndef smoke_hist():\n    global df\n    fig = px.histogram(df, x=\"smoking_status\", y=\"avg_glucose_level\", color='gender', barmode='group',height=400)\n    fig.show()","pos":6,"type":"cell"}
 {"cell_type":"code","exec_count":188,"id":"849c9b","input":"scat()","output":{"0":{"data":{"iframe":"a75599a3f332595e0b268f4ddce77ab1c9258d33"},"exec_count":188,"output_type":"execute_result"}},"pos":9,"type":"cell"}
-{"id":0,"time":1657203102643,"type":"user"}
-{"last_load":1657202767051,"type":"file"}
+{"id":0,"time":1657290532779,"type":"user"}
+{"last_load":1657290530001,"type":"file"}
