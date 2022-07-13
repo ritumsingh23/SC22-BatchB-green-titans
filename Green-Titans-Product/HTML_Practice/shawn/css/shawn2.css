@@ -1,0 +1,33 @@
+.header {
+  padding: 20px;
+  text-align: center;
+  font-size: 2.0em;
+  font-weight: bold;
+}
+
+.pageheader {
+  padding: 20px;
+  text-align: center;
+  font-size: 3.0em;
+  font-weight: bold;
+}
+
+.fpage-content {
+    text-align: center;
+    font-weight: 400px;
+    
+}
+
+.team {
+  justify-content: space-between;
+  display: block;
+}
+
+.card {
+      justify-content: space-between;
+  display: block;
+}
+
+.cards {
+    justify-content: space-around;
+}
